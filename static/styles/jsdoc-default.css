@@ -98,6 +98,11 @@ img {
   max-width: 100%;
 }
 
+.readme h1 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .class-description {
   font-size: 130%;
   line-height: 140%;
@@ -232,6 +237,7 @@ footer {
 
 .nav-header a {
   display: block;
+  text-decoration: none;
 }
 
 .nav-header img {
@@ -567,6 +573,12 @@ dl.param-type {
   height: 100%;
   background: hsla(0, 0%, 0%, 0.5);
   z-index: 1;
+}
+
+.readme h1 {
+  margin-bottom: .5em;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media only screen and (max-width: 680px) {
