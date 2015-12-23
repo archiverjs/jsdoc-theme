@@ -53,6 +53,7 @@ h1 {
 h1.page-title,
 .readme h1 {
   font-size: 48px;
+  line-height: 1;
   margin: .5em 30px;
 }
 
