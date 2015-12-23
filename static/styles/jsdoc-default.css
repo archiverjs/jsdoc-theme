@@ -115,9 +115,9 @@ img {
 }
 
 #main {
-  float: right;
-  min-width: 360px;
-  width: calc(100% - 250px);
+  margin-left: 220px;
+  margin-top: -1px;
+  padding-top: 1px;
 }
 
 header {
@@ -144,7 +144,7 @@ section {
 nav {
   float: left;
   display: block;
-  width: 250px;
+  width: 220px;
   background: #fff;
   overflow: auto;
   position: fixed;
@@ -588,13 +588,13 @@ dl.param-type {
 
   nav {
     background: #FFF;
-    width: 250px;
+    width: 220px;
     height: 100%;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    left: -250px;
+    left: -220px;
     z-index: 3;
     padding: 0 10px;
     transition: left 0.2s;
@@ -614,8 +614,7 @@ dl.param-type {
   }
 
   #main {
-    width: 100%;
-    min-width: 0;
+    margin-left: 0;
   }
 
   #main h1.page-title,
