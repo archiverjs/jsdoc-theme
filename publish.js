@@ -396,11 +396,12 @@ exports.publish = function(taffyData, opts, tutorials) {
 
     var conf = env.conf.templates || {};
     conf.default = conf.default || {};
+    conf.archiver = conf.archiver || {};
 
     var templatePath = path.normalize(opts.template);
     view = new template.Template( path.join(templatePath, 'tmpl') );
 
-    view.templateOptions = _.defaults(conf.templates.archiver, {
+    view.templateOptions = _.defaults(conf.archiver, {
         projectName: 'Documentation'
     });
 
