@@ -223,6 +223,18 @@ footer {
   font-size: 90%;
 }
 
+.nav-header {
+  text-align: center;
+}
+
+.nav-header a {
+  display: block;
+}
+
+.nav-header img {
+  width: 120px;
+}
+
 .ancestors {
   color: #999
 }
@@ -578,7 +590,7 @@ dl.param-type {
 
   #main {
     width: 100%;
-    min-width: 360px;
+    /*min-width: 360px;*/
   }
 
   #main h1.page-title {
