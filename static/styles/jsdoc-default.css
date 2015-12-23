@@ -230,7 +230,7 @@ footer {
 }
 
 .nav-header {
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -245,7 +245,8 @@ footer {
 
 .nav-header h1 {
   font-size: 24px;
-  margin-top: 10px;
+  margin-top: 5px;
+  text-transform: uppercase;
 }
 
 .ancestors {
@@ -602,7 +603,7 @@ dl.param-type {
     background: #FFF;
     display: inline-block;
     position: fixed;
-    top: 1.95em;
+    top: 2em;
     right: 0;
     z-index: 2;
   }
@@ -613,6 +614,7 @@ dl.param-type {
 
   #main {
     margin-left: 0;
+    padding-top: 1px;
   }
 
   #main h1.page-title,
