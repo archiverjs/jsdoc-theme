@@ -1,22 +1,36 @@
 {
-  "name": "minami",
-  "version": "1.1.1",
-  "description": "Clean and minimal JSDoc 3 Template / Theme",
-  "main": "publish.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "archiver-jsdoc-theme",
+  "version": "1.0.0",
+  "description": "Clean and minimal JSDoc 3 Template / Theme, based on Minami",
+  "homepage": "https://github.com/archiverjs/jsdoc-themer",
+  "author": {
+    "name": "Chris Talkington",
+    "url": "http://christalkington.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nijikokun/minami.git"
+    "url": "https://github.com/archiverjs/jsdoc-theme.git"
   },
-  "author": "Nijiko Yonskai <nijikokun@gmail.com>",
-  "licenses": [{
-    "type": "Apache-2.0",
-    "url": "http://www.apache.org/licenses/LICENSE-2.0"
-  }],
   "bugs": {
-    "url": "https://github.com/Nijikokun/minami/issues"
+    "url": "https://github.com/archiverjs/jsdoc-theme/issues"
   },
-  "homepage": "https://github.com/Nijikokun/minami"
+  "license": "Apache-2.0",
+  "main": "publish.js",
+  "files": [
+    "publish.js",
+    "static",
+    "tmpl"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "keywords": [
+    "jsdoc",
+    "theme",
+    "archiver"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }
