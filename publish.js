@@ -402,20 +402,24 @@ function parseChangelog(path) {
 }
 
 function findAndParseChangelog() {
-    var html;
+    var changelogHtml;
 
     if (env.opts.changelog) {
-        html = parseChangelog(env.opts.changelog);
+        changelogHtml = parseChangelog(env.opts.changelog);
     } else {
-        for (var i = 0, l = env.opts._.length; i < l; i++) {
-            if ( /(\bCHANGELOG|\.md)$/i.test(env.opts._[i]) ) {
-                html = parseChangelog(env.opts._[i]);
-                env.opts._.splice(i--, 1);
+        var sourceFiles = env.opts._ ? env.opts._.slice(0) : [];
+
+        for (var i = 0, l = sourceFilessourceFiles.length; i < l; i++) {
+            if ( /(\bCHANGELOG|\.md)$/i.test(sourceFilessourceFiles[i]) ) {
+                changelogHtml = parseChangelog(sourceFilessourceFiles[i]);
+                sourceFiles.splice(i--, 1);
             }
         }
+
+        env.opts._ = sourceFiles;
     }
 
-    return html;
+    return changelogHtml;
 }
 
 /**
