@@ -171,6 +171,17 @@ nav ul {
   list-style-type: none;
 }
 
+nav a {
+  color: #000;
+}
+
+nav a:hover,
+nav a:focus,
+nav a:active {
+  color: #FF9900;
+  text-decoration: none;
+}
+
 nav ul a,
 nav ul a:active {
   font-family: 'Montserrat', sans-serif;
@@ -181,8 +192,9 @@ nav ul a:active {
 }
 
 nav ul a:hover,
+nav ul a:focus,
 nav ul a:active {
-  color: hsl(200, 100%, 43%);
+  color: #FF9900;
   text-decoration: none;
 }
 
@@ -214,10 +226,21 @@ nav h2 {
    padding: 0;
 }
 
+nav > h2 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 nav > h2 > a {
-   display: block;
-   margin: 10px 0 -10px;
-   color: hsl(202, 71%, 50%) !important;
+  display: block;
+  margin: 10px 0 -10px;
+  text-decoration: none !important;
+}
+
+nav > h3 > a {
+  text-decoration: none !important;
 }
 
 footer {
@@ -244,9 +267,10 @@ footer {
 }
 
 .nav-header h1 {
+  color: #8CC84B;
   font-size: 24px;
   line-height: 1;
-  margin-top: 5px;
+  margin-top: 0;
   text-transform: uppercase;
 }
 
