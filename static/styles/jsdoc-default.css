@@ -48,13 +48,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-weight: 300;
   font-size: 48px;
-  margin: 1em 0 .5em;
+  margin: .5em 0;
 }
 
 h1.page-title,
 .readme h1 {
   font-size: 48px;
-  margin: 1em 30px;
+  margin: .5em 30px;
 }
 
 h2 {
@@ -116,8 +116,7 @@ img {
 
 #main {
   margin-left: 220px;
-  margin-top: -1px;
-  padding-top: 1px;
+  padding-top: 1em;
 }
 
 header {
@@ -576,7 +575,6 @@ dl.param-type {
 }
 
 .readme h1 {
-  margin-bottom: .5em;
   margin-left: 0;
   margin-right: 0;
 }
