@@ -635,7 +635,7 @@ exports.publish = function(taffyData, opts, tutorials) {
             [{
                 kind: 'mainpage',
                 readme: opts.readme,
-                changelog: opts.changelog,
+                // changelog: opts.changelog,
                 longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page'
             }]
         ).concat(files),
