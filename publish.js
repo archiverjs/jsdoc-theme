@@ -409,9 +409,9 @@ function findAndParseChangelog() {
     } else {
         var sourceFiles = env.opts._ ? env.opts._.slice(0) : [];
 
-        for (var i = 0, l = sourceFilessourceFiles.length; i < l; i++) {
-            if ( /(\bCHANGELOG|\.md)$/i.test(sourceFilessourceFiles[i]) ) {
-                changelogHtml = parseChangelog(sourceFilessourceFiles[i]);
+        for (var i = 0, l = sourceFiles.length; i < l; i++) {
+            if ( /(\bCHANGELOG|\.md)$/i.test(sourceFiles[i]) ) {
+                changelogHtml = parseChangelog(sourceFiles[i]);
                 sourceFiles.splice(i--, 1);
             }
         }
