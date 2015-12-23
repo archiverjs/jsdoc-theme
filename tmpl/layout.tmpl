@@ -24,7 +24,13 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav class="sidebar">
-    <?js= this.partial('nav-header.tmpl', {subdir: subdir, rootdir: rootdir} ) ?>
+    <header class="nav-header">
+        <a href="index.html">
+            <img class="nav-logo" src="images/logo.svg" src="image" onerror="this.onerror=null; this.src='images/logo.png'" alt="<?js= templateOptions.projectName ?>" />
+            <h1><?js= templateOptions.projectName ?></h1>
+        </a>
+    </header>
+
     <?js= this.nav ?>
 </nav>
 
