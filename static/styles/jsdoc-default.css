@@ -17,7 +17,7 @@ body {
 
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 160%;
+  line-height: 1.6;
 }
 
 a,
@@ -36,7 +36,6 @@ p, ul, ol, blockquote {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
-  line-height: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -245,6 +244,7 @@ footer {
 
 .nav-header h1 {
   font-size: 24px;
+  line-height: 1;
   margin-top: 5px;
   text-transform: uppercase;
 }
