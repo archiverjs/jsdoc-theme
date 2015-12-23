@@ -10,6 +10,8 @@ var taffy = require('taffydb').taffy;
 var template = require('jsdoc/template');
 var util = require('util');
 
+var _ = require('underscore');
+
 var htmlsafe = helper.htmlsafe;
 var linkto = helper.linkto;
 var resolveAuthorLinks = helper.resolveAuthorLinks;
@@ -398,6 +400,10 @@ exports.publish = function(taffyData, opts, tutorials) {
     var templatePath = path.normalize(opts.template);
     view = new template.Template( path.join(templatePath, 'tmpl') );
 
+    view.templateOptions = _.defaults(conf.templates.archiver, {
+        projectName: 'Documentation'
+    });
+
     // claim some special filenames in advance, so the All-Powerful Overseer of Filename Uniqueness
     // doesn't try to hand them out later
     var indexUrl = helper.getUniqueFilename('index');
@@ -556,8 +562,8 @@ exports.publish = function(taffyData, opts, tutorials) {
     members.tutorials = tutorials.children;
 
     // output pretty-printed source files by default
-    var outputSourceFiles = conf.default && conf.default.outputSourceFiles !== false 
-        ? true 
+    var outputSourceFiles = conf.default && conf.default.outputSourceFiles !== false
+        ? true
         : false;
 
     // add template helpers
@@ -577,8 +583,8 @@ exports.publish = function(taffyData, opts, tutorials) {
         generateSourceFiles(sourceFiles, opts.encoding);
     }
 
-    if (members.globals.length) { 
-        generate('', 'Global', [{kind: 'globalobj'}], globalUrl); 
+    if (members.globals.length) {
+        generate('', 'Global', [{kind: 'globalobj'}], globalUrl);
     }
 
     // index page displays information from package.json and lists files
@@ -655,6 +661,6 @@ exports.publish = function(taffyData, opts, tutorials) {
             saveChildren(child);
         });
     }
-    
+
     saveChildren(tutorials);
 };

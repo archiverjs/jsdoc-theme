@@ -23,7 +23,8 @@
 
 <label for="nav-trigger" class="overlay"></label>
 
-<nav>
+<nav class="sidebar">
+    <?js= this.partial('nav-header.tmpl', {subdir: subdir, rootdir: rootdir} ) ?>
     <?js= this.nav ?>
 </nav>
 
