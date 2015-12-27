@@ -10,7 +10,7 @@ var taffy = require('taffydb').taffy;
 var template = require('jsdoc/template');
 var util = require('util');
 
-var _ = require('underscore');
+var _ = require('lodash');
 var markdown = require('jsdoc/util/markdown');
 
 var htmlsafe = helper.htmlsafe;
@@ -359,8 +359,12 @@ function buildNav(members) {
     var seen = {};
     var seenTutorials = {};
 
+    if (env.opts.readme) {
+        nav += buildReadmeNav(env.opts.readme);
+    }
+
     if (env.opts.changelog) {
-        nav += '<h3>' + linkto('changelog', 'Changelog') + '</h3>';
+        nav += '<h3>' + '<a href="index.html#changelog">Changelog</a>' + '</h3>';
     }
 
     nav += buildMemberNav(members.classes, 'Classes', seen, linkto);
@@ -394,32 +398,50 @@ function buildNav(members) {
     return nav;
 }
 
+function addHeadingIds(html) {
+  return html.replace(/<h([0-9])>(.*?)<\/h[0-9]>/g, function(all, level, heading) {
+    return util.format(
+      '<h%s id="%s">%s</h%s>',
+      level, htmlId(heading), heading, level
+    );
+  });
+}
+
+function htmlId(str) {
+  return _.kebabCase(str.toLowerCase().replace(/[^a-z ]/g, ''));
+}
+
+function buildReadmeNav(readme) {
+  var headings = getHeadings(readme, 2);
+  var items = headings.map(function(heading) {
+    return util.format(
+      '<li><h3><a href="%s">%s</a></h3></li>',
+      helper.createLink(htmlId(heading)),
+      heading
+    );
+  }).join('\n');
+
+  return util.format('<ul class="readme">%s</ul>', items);
+}
+
+function getHeadings(html, level) {
+  var result = [];
+  var regexString = util.format('<h%s>(.*)<\/h%s>', level, level);
+  var regex = new RegExp(regexString, 'gi');
+
+  html.replace(regex, function(whole, heading) {
+    result.push(heading);
+    return whole;
+  });
+
+  return result;
+}
+
 function parseChangelog(path) {
     var content = fs.readFileSync(path, env.opts.encoding);
     var parse = markdown.getParser();
 
-    return parse(content);
-}
-
-function findAndParseChangelog() {
-    var changelogHtml;
-
-    if (env.opts.changelog) {
-        changelogHtml = parseChangelog(env.opts.changelog);
-    } else {
-        var sourceFiles = env.opts._ ? env.opts._.slice(0) : [];
-
-        for (var i = 0, l = sourceFiles.length; i < l; i++) {
-            if ( /(\bCHANGELOG|\.md)$/i.test(sourceFiles[i]) ) {
-                changelogHtml = parseChangelog(sourceFiles[i]);
-                sourceFiles.splice(i--, 1);
-            }
-        }
-
-        env.opts._ = sourceFiles;
-    }
-
-    return changelogHtml;
+    return addHeadingIds(parse(content));
 }
 
 /**
@@ -434,7 +456,13 @@ exports.publish = function(taffyData, opts, tutorials) {
     conf.default = conf.default || {};
     conf.archiver = conf.archiver || {};
 
-    opts.changelog = findAndParseChangelog();
+    if (opts.readme) {
+        env.opts.readme = opts.readme = addHeadingIds(opts.readme);
+    }
+
+    if (opts.changelog) {
+      env.opts.changelog = opts.changelog = parseChangelog(env.opts.changelog);
+    }
 
     var templatePath = path.normalize(opts.template);
     view = new template.Template( path.join(templatePath, 'tmpl') );
@@ -635,7 +663,7 @@ exports.publish = function(taffyData, opts, tutorials) {
             [{
                 kind: 'mainpage',
                 readme: opts.readme,
-                // changelog: opts.changelog,
+                changelog: opts.changelog,
                 longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page'
             }]
         ).concat(files),
