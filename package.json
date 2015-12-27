@@ -2,7 +2,7 @@
   "name": "archiver-jsdoc-theme",
   "version": "1.0.20",
   "description": "Clean and minimal JSDoc 3 Template / Theme, based on Minami",
-  "homepage": "https://github.com/archiverjs/jsdoc-themer",
+  "homepage": "https://github.com/archiverjs/jsdoc-theme",
   "author": {
     "name": "Chris Talkington",
     "url": "http://christalkington.com/"
