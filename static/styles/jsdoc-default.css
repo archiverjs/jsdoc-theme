@@ -151,13 +151,12 @@ nav {
 }
 
 nav h3 {
-  margin-top: 12px;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
   line-height: 24px;
-  margin: 15px 0 10px;
+  margin: 10px 0 5px;
   padding: 0;
   color: #000;
 }
@@ -202,6 +201,16 @@ nav > ul {
   padding: 0 10px;
 }
 
+nav > ul.readme {
+  padding: 0;
+}
+
+nav > ul.readme a {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
 nav > ul > li > a {
   color: #000;
 }
@@ -217,7 +226,7 @@ nav ul ul a {
 
 nav ul ul a,
 nav ul ul a:active {
-  padding-left: 20px
+  padding-left: 10px
 }
 
 nav h2 {
@@ -235,7 +244,6 @@ nav > h2 {
 
 nav > h2 > a {
   display: block;
-  margin: 10px 0 -10px;
   text-decoration: none !important;
 }
 

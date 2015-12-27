@@ -416,7 +416,7 @@ function buildReadmeNav(readme) {
   var items = headings.map(function(heading) {
     return util.format(
       '<li><h3><a href="%s">%s</a></h3></li>',
-      helper.createLink(htmlId(heading)),
+      'index.html#' + htmlId(heading),
       heading
     );
   }).join('\n');
@@ -426,7 +426,7 @@ function buildReadmeNav(readme) {
 
 function getHeadings(html, level) {
   var result = [];
-  var regexString = util.format('<h%s>(.*)<\/h%s>', level, level);
+  var regexString = util.format('<h%s[^>]*>(.*?)<\/h%s>', level, level);
   var regex = new RegExp(regexString, 'gi');
 
   html.replace(regex, function(whole, heading) {
@@ -441,7 +441,7 @@ function parseChangelog(path) {
     var content = fs.readFileSync(path, env.opts.encoding);
     var parse = markdown.getParser();
 
-    return addHeadingIds(parse(content));
+    return parse(content);
 }
 
 /**
@@ -461,14 +461,15 @@ exports.publish = function(taffyData, opts, tutorials) {
     }
 
     if (opts.changelog) {
-      env.opts.changelog = opts.changelog = parseChangelog(env.opts.changelog);
+        env.opts.changelog = opts.changelog = parseChangelog(env.opts.changelog);
     }
 
     var templatePath = path.normalize(opts.template);
     view = new template.Template( path.join(templatePath, 'tmpl') );
 
     view.templateOptions = _.defaults(conf.archiver, {
-        projectName: 'Docs'
+        projectName: 'Docs',
+        htmlTitleSuffix: 'Documentation'
     });
 
     // claim some special filenames in advance, so the All-Powerful Overseer of Filename Uniqueness
