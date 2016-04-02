@@ -469,7 +469,8 @@ exports.publish = function(taffyData, opts, tutorials) {
 
     view.templateOptions = _.defaults(conf.archiver, {
         projectName: 'Docs',
-        htmlTitleSuffix: 'Documentation'
+        htmlTitleSuffix: 'Documentation',
+        googleTagManager: false
     });
 
     // claim some special filenames in advance, so the All-Powerful Overseer of Filename Uniqueness
