@@ -6,7 +6,7 @@ var isHome = title === 'Home';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?js= isHome ? this.templateOptions.htmlTitleHome : title + ' - ' + this.templateOptions.htmlTitleSuffix ?></title>
+    <title><?js= isHome ? this.templateOptions.htmlTitleHome : title + ' | ' + this.templateOptions.htmlTitleSuffix ?></title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -40,7 +40,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <nav class="sidebar">
     <header class="nav-header">
         <a href="index.html">
-            <img class="nav-logo" src="images/logo.svg" src="image" onerror="this.onerror=null; this.src='images/logo.png'" alt="<?js= this.templateOptions.projectName ?>" />
+            <img class="nav-logo" src="images/logo.svg" src="image" onerror="this.onerror=null; this.src='images/logo.png'" alt="<?js= this.templateOptions.logoAltText ?>" />
             <h1><?js= this.templateOptions.projectName ?></h1>
         </a>
     </header>

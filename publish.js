@@ -470,7 +470,8 @@ exports.publish = function(taffyData, opts, tutorials) {
     view.templateOptions = _.defaults(conf.archiver, {
         projectName: 'Project',
         htmlTitleHome: 'Project Documentation',
-        htmlTitleSuffix: 'Documentation',
+        htmlTitleSuffix: 'Project Documentation',
+        logoAltText: 'Project',
         googleTagManager: false
     });
 
