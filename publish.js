@@ -468,7 +468,8 @@ exports.publish = function(taffyData, opts, tutorials) {
     view = new template.Template( path.join(templatePath, 'tmpl') );
 
     view.templateOptions = _.defaults(conf.archiver, {
-        projectName: 'Docs',
+        projectName: 'Project',
+        htmlTitleHome: 'Project Documentation',
         htmlTitleSuffix: 'Documentation',
         googleTagManager: false
     });
